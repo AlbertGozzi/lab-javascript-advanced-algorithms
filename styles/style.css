@@ -14,6 +14,7 @@ ul.list-stack > li {
   transform: rotate(-180deg);
   height: 40px;
   text-align: center;
+  background-color: lightgrey;
 }
 
 li.inactive {
@@ -39,6 +40,7 @@ ul.list-queue > li {
   padding: 5px;
   text-align: center;
   display: inline;
+  background-color: lightgrey;
 }
 
 div.warning-top {

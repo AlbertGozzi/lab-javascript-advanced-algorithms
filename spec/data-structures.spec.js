@@ -85,7 +85,7 @@ describe('Stack', () => {
       stack.push(19);
       stack.push(88);
 
-      expect(stack.pop()).toBe(88);
+      expect(stack.stackControl.pop()).toBe(88);
     });
 
     it("Should return 'Stack Underflow' if there are no elements in the stack", () => {

@@ -9,29 +9,47 @@ const takeStackBtn = document.getElementById('take-stack');
 const newStack = new StackDataStructure();
 
 const clearStackInput = () => {
-  // ... your code goes here
+  let stackList = document.querySelector('#stack-list');
+  stackList.innerHTML = '';
 };
 
 const renderListStack = () => {
-  // ... your code goes here
+  clearStackInput();
+  let stackList = document.querySelector('#stack-list')
+  newStack.stackControl.forEach(element => {
+    let newLi = document.createElement("li");
+    newLi.innerHTML = element;
+    stackList.append(newLi);
+  })
 };
 
 renderListStack();
 
 const generateWarningStack = type => {
-  if (type === 'underflow') {
-    // ... your code goes here
-  } else if (type === 'overflow') {
-    // ... your code goes here
-  }
+  type = type.toLowerCase();
+  if (type.includes('underflow')) {
+    warningBottomStack.innerHTML = "Stack Underflow!"
+    warningBottomStack.style.display = 'block';
+  } else if (type.includes('overflow')) {
+    warningTopStack.innerHTML = "Stack Overflow!"
+    warningTopStack.style.display = 'block';  }
 };
 
 const addToStack = () => {
-  // ... your code goes here
+  warningTopStack.style.display = 'none';
+  warningBottomStack.style.display = 'none';
+  let input = document.querySelector('#stack-input').value;
+  let result = newStack.push(input);
+  if (typeof result === 'string') {generateWarningStack(result)}
+  renderListStack();
 };
 
 const removeFromStack = () => {
-  // ... your code goes here
+  warningTopStack.style.display = 'none';
+  warningBottomStack.style.display = 'none';
+  let result = newStack.pop();
+  if (typeof result === 'string') {generateWarningStack(result)}
+  renderListStack();
 };
 
 addStackBtn.addEventListener('click', addToStack);

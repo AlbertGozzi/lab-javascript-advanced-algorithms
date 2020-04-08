@@ -5,22 +5,25 @@ class StackDataStructure {
   }
 
   canPush() {
-    // ... your code goes here
+    return this.stackControl.length < this.MAX_SIZE;
   }
 
   display() {
-    // ... your code goes here
+    return;
   }
 
   isEmpty() {
-    // ... your code goes here
+    return this.stackControl.length === 0;
   }
 
   push(item) {
-    // ... your code goes here
+    if (!this.canPush()) { return 'Stack Overflow' };
+    this.stackControl.push(item);
+    return this.stackControl;
   }
 
   pop() {
-    // ... your code goes here
+    if (this.isEmpty()) { return 'Stack Underflow' };
+    this.stackControl.pop();
   }
 }
