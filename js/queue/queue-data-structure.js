@@ -17,13 +17,13 @@ class QueueDataStructure {
   }
 
   enqueue(item) {
-    if (!this.canEnqueue()) { return 'Queue Overflow' };
+    if (!this.canEnqueue()) { return 'Queue Overflow'; }
     this.queueControl.unshift(item);
     return this.queueControl;
   }
 
   dequeue() {
-    if (this.isEmpty()) { return 'Queue Underflow' };
+    if (this.isEmpty()) { return 'Queue Underflow'; }
     return this.queueControl.pop();
   }
 }

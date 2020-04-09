@@ -14,12 +14,12 @@ const clearQueueInput = () => {
 
 const generateListQueue = () => {
   clearQueueInput();
-  let queueList = document.querySelector('#queue-list')
+  let queueList = document.querySelector('#queue-list');
   queue.queueControl.forEach(element => {
     let newLi = document.createElement("li");
     newLi.innerHTML = element;
     queueList.append(newLi);
-  })
+  });
 };
 
 generateListQueue();
@@ -27,18 +27,19 @@ generateListQueue();
 const generateWarningQueue = type => {
   type = type.toLowerCase();
   if (type.includes('underflow')) {
-    warningBottomQueue.innerHTML = "Queue Underflow!"
+    warningBottomQueue.innerHTML = "Queue Underflow!";
     warningBottomQueue.style.display = 'block';
   } else if (type.includes('overflow')) {
-    warningTopQueue.innerHTML = "Queue Overflow!"
-    warningTopQueue.style.display = 'block';  }
+    warningTopQueue.innerHTML = "Queue Overflow!";
+    warningTopQueue.style.display = 'block';  
+  }
 };
 const addToQueue = () => {
   warningTopQueue.style.display = 'none';
   warningBottomQueue.style.display = 'none';
   let input = document.querySelector('#queue-input').value;
   let result = queue.enqueue(input);
-  if (typeof result === 'string') {generateWarningQueue(result)}
+  if (typeof result === 'string') {generateWarningQueue(result);}
   generateListQueue();
 };
 
@@ -46,7 +47,7 @@ const removeFromQueue = () => {
   warningTopQueue.style.display = 'none';
   warningBottomQueue.style.display = 'none';
   let result = queue.dequeue();
-  if (typeof result === 'string') {generateWarningQueue(result)}
+  if (typeof result === 'string') {generateWarningQueue(result);}
   generateListQueue();
 };
 

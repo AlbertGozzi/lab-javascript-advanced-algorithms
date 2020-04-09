@@ -17,13 +17,13 @@ class StackDataStructure {
   }
 
   push(item) {
-    if (!this.canPush()) { return 'Stack Overflow' };
+    if (!this.canPush()) { return 'Stack Overflow' ;}
     this.stackControl.push(item);
     return this.stackControl;
   }
 
   pop() {
-    if (this.isEmpty()) { return 'Stack Underflow' };
+    if (this.isEmpty()) { return 'Stack Underflow' ;}
     this.stackControl.pop();
   }
 }

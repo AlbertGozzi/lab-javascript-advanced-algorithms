@@ -15,12 +15,12 @@ const clearStackInput = () => {
 
 const renderListStack = () => {
   clearStackInput();
-  let stackList = document.querySelector('#stack-list')
+  let stackList = document.querySelector('#stack-list');
   newStack.stackControl.forEach(element => {
     let newLi = document.createElement("li");
     newLi.innerHTML = element;
     stackList.append(newLi);
-  })
+  });
 };
 
 renderListStack();
@@ -28,11 +28,12 @@ renderListStack();
 const generateWarningStack = type => {
   type = type.toLowerCase();
   if (type.includes('underflow')) {
-    warningBottomStack.innerHTML = "Stack Underflow!"
+    warningBottomStack.innerHTML = "Stack Underflow!";
     warningBottomStack.style.display = 'block';
   } else if (type.includes('overflow')) {
-    warningTopStack.innerHTML = "Stack Overflow!"
-    warningTopStack.style.display = 'block';  }
+    warningTopStack.innerHTML = "Stack Overflow!";
+    warningTopStack.style.display = 'block';  
+  }
 };
 
 const addToStack = () => {
@@ -40,7 +41,7 @@ const addToStack = () => {
   warningBottomStack.style.display = 'none';
   let input = document.querySelector('#stack-input').value;
   let result = newStack.push(input);
-  if (typeof result === 'string') {generateWarningStack(result)}
+  if (typeof result === 'string') {generateWarningStack(result);}
   renderListStack();
 };
 
@@ -48,7 +49,7 @@ const removeFromStack = () => {
   warningTopStack.style.display = 'none';
   warningBottomStack.style.display = 'none';
   let result = newStack.pop();
-  if (typeof result === 'string') {generateWarningStack(result)}
+  if (typeof result === 'string') {generateWarningStack(result);}
   renderListStack();
 };
 
